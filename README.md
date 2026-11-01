@@ -23,3 +23,10 @@ The trade-off: units are lowercase and case-sensitive. `2H30M` is rejected. This
 - Duplicate units are rejected (`"2h3h"` raises).
 - Zero-value components are omitted on render (`{"h": 2, "m": 0}` renders as `"2h"`).
 - `render({})` returns `"0s"` rather than the empty string, so you always get a valid duration back.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
