@@ -1,6 +1,6 @@
 [project]
 name = "tiny-duration-parse"
-version = "0.1.0"
+version = "0.1.1"
 description = "Parse duration strings like 2h30m into structured components and convert them to a standard format."
 requires-python = ">=3.10"
 dependencies = []
